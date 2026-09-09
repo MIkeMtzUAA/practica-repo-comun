@@ -61,6 +61,26 @@
     <p>Universidad Autónoma de Aguascalientes &mdash; Lic. en Informática y Tecnologías Computacionales</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js">
+	document.addEventListener('DOMContentLoaded', () => {
+        const formContacto = document.getElementById('form-contacto');
+
+        formContacto.addEventListener('submit', function(event) {
+            const nombre = document.getElementById('nombre').value.trim();
+            const correo = document.getElementById('correo').value.trim();
+            const mensaje = document.getElementById('mensaje').value.trim();
+
+            if (nombre === '' || correo === '' || mensaje === '') {
+                event.preventDefault();
+                alert('Por favor, completa todos los campos del formulario.');
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
+                event.preventDefault();
+                alert('Por favor, ingresa un correo electrónico válido.');
+            } else {
+                alert('Formulario enviado correctamente.');
+            }
+        });
+    });
+  </script>
 </body>
 </html>
