@@ -1,97 +1,90 @@
-/* Estilos base del Sistema de Inscripción Escolar
-   TODO (rama feature-estilo): ajustar la paleta de colores de este archivo
-   (variables :root abajo) sin romper el resto del diseño. */
-
 :root {
-  --color-primario: #2c3e50;
-  --color-secundario: #ecf0f1;
-  --color-acento: #2980b9;
-  --color-texto: #2c3e50;
-}
-
-* {
-  box-sizing: border-box;
+  --primary-color: #2c3e50;
+  --accent-color: #3498db;
+  --success-color: #27ae60;
+  --warning-color: #e67e22;
+  --danger-color: #c0392b;
+  --bg-color: #f8f9fa;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: #333;
   margin: 0;
-  color: var(--color-texto);
-  background-color: var(--color-secundario);
+  padding: 20px;
 }
 
-header {
-  background-color: var(--color-primario);
-  color: white;
-  padding: 1.5rem;
-  text-align: center;
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-header .tagline {
-  margin: 0.25rem 0 0;
-  font-size: 0.9rem;
-  opacity: 0.85;
+h1 {
+  margin-top: 0;
+  color: var(--primary-color);
+  font-size: 24px;
 }
 
-nav {
-  background-color: var(--color-acento);
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  padding: 0.75rem;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-main {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-
-section {
-  background: white;
-  border-radius: 6px;
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-form label {
-  display: block;
-  margin-top: 0.75rem;
-  font-weight: bold;
-}
-
-form input, form textarea {
+.search-box {
   width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.25rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
 }
 
-form button {
-  margin-top: 1rem;
-  background-color: var(--color-acento);
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: var(--primary-color);
   color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 4px;
-  cursor: pointer;
+  font-weight: 600;
 }
 
-footer {
+tr:hover {
+  background-color: #f1f2f6;
+}
+
+.badge {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  display: inline-block;
+}
+
+.bg-success {
+  background-color: var(--success-color);
+}
+
+.bg-warning {
+  background-color: var(--warning-color);
+}
+
+.bg-danger {
+  background-color: var(--danger-color);
+}
+
+.empty-message {
   text-align: center;
-  padding: 1rem;
-  font-size: 0.85rem;
-  color: #666;
+  color: #7f8c8d;
+  padding: 20px;
 }

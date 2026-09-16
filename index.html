@@ -1,67 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Sistema de Inscripción Escolar</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Inventario de Tienda</title>
 </head>
 <body>
 
-  <header>
-    <h1>Sistema de Inscripción Escolar</h1>
-    <p class="tagline">Ciclo escolar 2026-2027</p>
-  </header>
+    <div class="container">
+        <h1>Control de Existencias</h1>
+        
+        <!-- Buscador en tiempo real -->
+        <input type="text" id="searchInput" class="search-box" placeholder="Buscar producto por nombre o categoría...">
 
-  <nav>
-    <a href="#inicio">Iniciojajajsalu2</a>
-    <a href="#alumnos">Alumnos</a>
-    <a href="#materias">Materias</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-
-  <main>
-
-    <section id="inicio">
-      <h2>Bienvenidos</h2>
-      <p>Este es el panel principal del sistema de inscripción. Desde aquí, alumnos y administradores pueden consultar información básica del ciclo escolar.</p>
-    </section>
-
-    <section id="alumnos">
-      <h2>Alumnos</h2>
-      <!-- TODO (rama feature-alumnos): agregar aqasd	fghjkluí una tabla simple con columnas Nombre / Matrícula / Semestre -->
-      <p><em>(Sección en construcción)</em></p>
-    </section>
-
-    <section id="materias">
-      <h2>Materias</h2>
-      <!-- TODO (rama feature-materias): agregar aquí una lista de al menos 4 materias con su clave -->
-	<p>*Lista*</p>
-      <p><em>(Sección en construcción)</em></p>
-    </section>
-
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <form id="form-contacto">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre">
-
-        <label for="correo">Correo:</label>
-        <input type="email" id="correo" name="correo">
-
-        <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje"></textarea>
-
-        <button type="submit">Enviar</button>
-      </form>
-      <!-- TODO (rama feature-validacion): la validación del formulario vive en script.js -->
-    </section>
-
-  </main>
-
-  <footer>
-    <p>Universidad Autónoma de Aguascalientes &mdash; Lic. en Informática y Tecnologías Computacionales</p>
-  </footer>
-
-  <script src="script.js"></script>
+        <!-- Tabla de Inventario -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Categoría</th>
+                    <th>Cantidad Disponible</th>
+                </tr>
+            </thead>
+            <tbody id="inventoryTableBody">
+                <!-- Los datos se insertarán dinámicamente con JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
