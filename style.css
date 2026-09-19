@@ -88,3 +88,40 @@ tr:hover {
   color: #7f8c8d;
   padding: 20px;
 }
+
+/* Estilos modernos para la tabla y controles */
+button.btn-sell {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+button.btn-sell:hover {
+    background-color: #0b5ed7;
+}
+
+input.qty-input {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Insignias de stock */
+.badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+}
+.bg-success { background-color: #198754; }
+.bg-warning { background-color: #ffc107; color: #000 !important; }
+.bg-danger { background-color: #dc3545; }
