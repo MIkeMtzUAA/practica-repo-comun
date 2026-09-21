@@ -107,6 +107,13 @@ function registerSale(productId, quantitySold) {
   // Descontar del inventario
   product.stock -= quantitySold;
 
+  // --- ALERTA DE REABASTECIMIENTO ---
+  if (product.stock > 0 && product.stock <= 5) {
+    alert(` Atencion: "${product.name}" esta por agotarse. Quedan solo ${product.stock} unidades. Considera reabastecer.`);
+  } else if (product.stock === 0) {
+    alert(` El producto "${product.name}" se acaba de agotar por completo.`);
+  }
+
   // Registrar en el historial
   const now = new Date();
   const timeString = now.toLocaleTimeString() + " - " + now.toLocaleDateString();
@@ -141,6 +148,64 @@ searchInput.addEventListener("input", (e) => {
   );
   renderTable(filteredData);
 });
+
+// --- LÓGICA PARA REABASTECER INVENTARIO ---
+
+const productSelect = document.getElementById("productSelect");
+
+// 7. Llenar la lista desplegable de productos
+function renderProductSelect() {
+  // Limpiamos el select antes de llenarlo
+  productSelect.innerHTML = '<option value="">Selecciona un producto para surtir...</option>';
+  
+  inventory.forEach((item) => {
+    const option = document.createElement("option");
+    option.value = item.id;
+    option.textContent = item.name;
+    productSelect.appendChild(option);
+  });
+}
+
+// 8. Procesar el ingreso de nuevo stock
+function processRestock() {
+  const productId = parseInt(productSelect.value);
+  const qtyInput = document.getElementById("restockQty");
+  const quantityToAdd = parseInt(qtyInput.value);
+
+  // Validaciones
+  if (!productId) {
+    alert("Por favor, selecciona un producto de la lista.");
+    return;
+  }
+
+  if (isNaN(quantityToAdd) || quantityToAdd <= 0) {
+    alert("Por favor, ingresa una cantidad válida mayor a 0 para reabastecer.");
+    return;
+  }
+
+  // Buscar el producto en el inventario y sumar el stock
+  const product = inventory.find((item) => item.id === productId);
+  if (product) {
+    product.stock += quantityToAdd;
+    alert(`¡Éxito! Se han agregado ${quantityToAdd} unidades a "${product.name}". Nuevo stock total: ${product.stock}`);
+    
+    // Limpiar el formulario
+    qtyInput.value = "";
+    productSelect.value = "";
+    
+    // Actualizar la tabla manteniendo los filtros activos
+    const currentSearch = searchInput.value.toLowerCase();
+    const currentData = inventory.filter(
+      (item) =>
+        item.name.toLowerCase().includes(currentSearch) ||
+        item.category.toLowerCase().includes(currentSearch)
+    );
+    renderTable(currentData);
+  }
+}
+
+// Inicializar la lista desplegable al cargar la página
+renderProductSelect();
 
 // Carga inicial
 renderTable(inventory);

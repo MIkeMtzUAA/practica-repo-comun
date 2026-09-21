@@ -21,13 +21,26 @@
                     <th>Producto</th>
                     <th>Categoría</th>
                     <th>Cantidad Disponible</th>
-                    <th>Acciones</th> <!-- 👈 1. Agregamos esta columna aquí -->
+                    <th>Acciones</th> <!--  1. Agregamos esta columna aquí -->
                 </tr>
             </thead>
             <tbody id="inventoryTableBody">
                 <!-- Los datos y botones se insertarán dinámicamente con JavaScript -->
             </tbody>
         </table>
+    </div>
+
+    <!-- SECCIÓN PARA REABASTECER INVENTARIO -->
+    <div class="container" style="margin-top: 20px;">
+        <h2>Reabastecer Inventario</h2>
+        <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 10px;">
+            <select id="productSelect" class="search-box" style="margin-bottom: 0; width: 60%;">
+                <option value="">Selecciona un producto para surtir...</option>
+                <!-- Las opciones se llenarán con JavaScript -->
+            </select>
+            <input type="number" id="restockQty" class="qty-input" placeholder="Cant." min="1" style="width: 80px;">
+            <button class="btn-sell" style="background-color: #198754;" onclick="processRestock()">Agregar Stock</button>
+        </div>
     </div>
     
     <!-- SECCIÓN DE HISTORIAL DE VENTAS -->
